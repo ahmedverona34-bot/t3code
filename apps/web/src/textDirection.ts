@@ -33,6 +33,7 @@ function wordDirection(word: string): TextDirection | undefined {
  * Ties go to whichever comes first.
  */
 export function textDirection(text: string): TextDirection | undefined {
+  if (!RTL_LETTER.test(text)) return LETTER.test(text) ? "ltr" : undefined;
   return majority(
     text.split(SENTENCE_END).map((sentence) => majority(sentence.split(/\s+/).map(wordDirection))),
   );
