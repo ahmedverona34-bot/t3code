@@ -26,6 +26,16 @@ describe("textDirection", () => {
       "Run the migration first. ثم شغّل الاختبارات كلها. Then deploy to staging.",
       "ltr",
     ],
+    [
+      "Arabic with inline abbreviations",
+      "هذه جملة عربية تتحدث عن e.g. React i.e. TypeScript JavaScript",
+      "rtl",
+    ],
+    [
+      "an abbreviation at a sentence boundary",
+      "This long English sentence describes the technology sector in the U.S. هذه جملة عربية. وهذه جملة عربية أخرى.",
+      "rtl",
+    ],
   ])("reads %s", (_, text, direction) => {
     expect(textDirection(text)).toBe(direction);
   });

@@ -4,7 +4,7 @@ export type TextDirection = "ltr" | "rtl";
 // supplementary right-to-left blocks.
 const RTL_LETTER = /[֐-ࣿיִ-﷿ﹰ-﻿\u{10800}-\u{10FFF}\u{1E800}-\u{1EFFF}]/u;
 const LETTER = /\p{L}/u;
-const SENTENCE_END = /(?<=[.!?؟])\s+|\n+/;
+const SENTENCE_END = /(?<=[.!?؟])(?<!\b(?:e\.g|i\.e)\.)\s+|\n+/i;
 
 function majority(units: Iterable<TextDirection | undefined>): TextDirection | undefined {
   let rtl = 0;
